@@ -19,3 +19,13 @@ jobs:
           php-version: '8.3'
           extensions: mbstring, dom, fileinfo, sqlite3, pdo_sqlite
           coverage: none
+
+    #DODAVANJE COMPOSERA I LARAVELA
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Copy .env
+        run: cp .env.example .env
+
+      - name: Generate application key
+        run: php artisan key:generate
