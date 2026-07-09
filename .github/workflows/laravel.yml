@@ -43,10 +43,6 @@ jobs:
       - name: Verify Laravel application
         run: php artisan --version
 
-    #CISCENJE LARAVEL CACHE-A
-      # - name: Clear Laravel Cache
-      #   run: php artisan optimize:clear
-
     #POPIS RUTA
       - name: Popis ruta
         run: php artisan route:list
@@ -57,3 +53,7 @@ jobs:
           DB_CONNECTION: sqlite
           DB_DATABASE: ":memory:"
         run: php artisan migrate --force
+
+    #CISCENJE LARAVEL CACHE-A
+      - name: Clear Laravel Cache
+        run: php artisan optimize:clear
