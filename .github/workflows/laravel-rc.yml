@@ -1,8 +1,8 @@
-name: Laravel CI process - main
+name: Laravel CI process - Release Candidate
 
 on:
   push:
-    branches: [main]
+    branches: [release-candidate]
 #KORACI
 jobs:
   laravel-tests:
@@ -12,7 +12,7 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
 
-      - name: Build start
+      - name: Build start za release candidate
         run: |
           echo "BUILD STARTED:"
           echo " Datum početka : $(date '+%d.%m.%Y %H:%M:%S')"
@@ -99,13 +99,6 @@ jobs:
           echo " Commit SHA: ${{ github.sha}}"
           echo " Workspace : ${{ github.workspace}}"
           echo " Datum : $(date '+%d.%m.%Y %H:%M:%S')"
-
-    #IZVRŠAVANJE SAMO AKO SE RADI O GRANI MAIN
-      - name: Produkcijska grana
-        if: github.ref == 'refs/heads/main'
-        run: |
-          echo "Ovaj workflow se izvršava samo na main grani"
-          echo "Main grana se u našem primjeru smatra produkcijskom granom"
 
     #IZVRŠAVANJE SAMO AKO SE RADI O GRANI RELEASE-CANDIDATE
       - name: Release candidate
