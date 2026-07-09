@@ -80,3 +80,17 @@ jobs:
           echo "==========NEMA DEPLOYA========="
           echo "====== Datum $(date) =========="
           echo "==============================="        
+
+
+    #ZAVRŠNA STATISTIKA
+      - name: Završna statistika
+        if: always()
+        run: |
+          echo "==============================="
+          echo "====LARAVEL CI završio========="
+          echo " Repository: ${{ github.repository}}"
+          echo " Branch: ${{ github.ref_name}}"
+          echo " Commiter: ${{ github.actor}}"
+          echo " Commit SHA: ${{ github.sha}}"
+          echo " Workspace : ${{ github.workspace}}"
+          echo " Datum : $(date '+%d.%m.%Y %H:%i:%s')"
