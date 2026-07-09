@@ -224,26 +224,27 @@ class CategoryTest extends TestCase
             ]);
         }
 
-        public function test_validacija_opis_je_obavezan(): void
-        {
-            $admin = $this->admin();
+        #TEST KOJI ĆE NAMJERNO PUKNUTI
+        // public function test_validacija_opis_je_obavezan(): void
+        // {
+        //     $admin = $this->admin();
 
-            $response = $this
-                ->from(route('categories.create'))
-                ->actingAs($admin)
-                ->post(route('categories.store'),[
-                    'naziv'=>'Laptopi',
-                    'opis'=>'',
-                ]);
+        //     $response = $this
+        //         ->from(route('categories.create'))
+        //         ->actingAs($admin)
+        //         ->post(route('categories.store'),[
+        //             'naziv'=>'Laptopi',
+        //             'opis'=>'',
+        //         ]);
 
-            $response->assertRedirect(route('categories.create'));
+        //     $response->assertRedirect(route('categories.create'));
 
-            $response->assertSessionHasErrors(['opis']);
+        //     $response->assertSessionHasErrors(['opis']);
 
-            $this->assertDatabaseMissing('categories',[
-                'naziv'=>'Laptopi',
-            ]);
-        }
+        //     $this->assertDatabaseMissing('categories',[
+        //         'naziv'=>'Laptopi',
+        //     ]);
+        // }
 
         public function test_validacija_opis_nije_obavezan(): void
         {
