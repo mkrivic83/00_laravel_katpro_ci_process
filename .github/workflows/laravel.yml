@@ -93,4 +93,11 @@ jobs:
           echo " Commiter: ${{ github.actor}}"
           echo " Commit SHA: ${{ github.sha}}"
           echo " Workspace : ${{ github.workspace}}"
-          echo " Datum : $(date '+%d.%m.%Y %H:%i:%s')"
+          echo " Datum : $(date '+%d.%m.%Y %H:%M:%S')"
+
+    #IZVRŠAVANJE SAMO AKO SE RADI O GRANI MAIN
+      - name: Produkcijska grana
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "Ovaj workflow se izvršava samo na main grani"
+          echo "Main grana se u našem primjeru smatra produkcijskom granom"
