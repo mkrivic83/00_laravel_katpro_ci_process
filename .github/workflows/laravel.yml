@@ -24,8 +24,17 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
+    #DODAVANJE npm paketa
+
+      - name: Install NPM dependencies
+        run: npm install
+
       - name: Copy .env
         run: cp .env.example .env
 
       - name: Generate application key
         run: php artisan key:generate
+
+    #DODAVANJE build-a za produkciju
+      - name: Build Vite assets
+        run: npm run build
