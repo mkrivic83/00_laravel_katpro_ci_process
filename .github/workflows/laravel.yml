@@ -50,3 +50,10 @@ jobs:
     #POPIS RUTA
       - name: Popis ruta
         run: php artisan route:list
+
+    #DODAVANJE BAZE/MIGRACIJA
+      - name: Run database migrations
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: ":memory:"
+        run: php artisan migrate --force
