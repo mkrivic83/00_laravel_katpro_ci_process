@@ -12,6 +12,11 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
 
+      - name: Build start
+        run: |
+          echo "BUILD STARTED:"
+          echo " Datum početka : $(date '+%d.%m.%Y %H:%M:%S')"
+
     #DODAVANJE PHP-A
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -115,3 +120,9 @@ jobs:
         run: |
           echo "Commit poruka sadrži riječ deploy"
           echo "Poruka commita: ${{github.event.head_commit.message}}"
+
+      
+      - name: Build end
+        run: |
+          echo "BUILD ENDED:"
+          echo " Datum kraja : $(date '+%d.%m.%Y %H:%M:%S')"
