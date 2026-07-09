@@ -61,3 +61,12 @@ jobs:
           DB_CONNECTION: sqlite
           DB_DATABASE: ":memory:"
         run: php artisan test
+
+    #UVJET ZA USPJEŠAN DEPLOY
+      - name: CI uspješan
+        if: success()
+        run: |
+          echo "==============================="
+          echo "==========CI PASSED============"
+          echo "==========SPREMNO ZA DEPLOY===="
+          echo "==============================="
