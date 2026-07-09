@@ -53,7 +53,3 @@ jobs:
           DB_CONNECTION: sqlite
           DB_DATABASE: ":memory:"
         run: php artisan migrate --force
-
-    #CISCENJE LARAVEL CACHE-A
-      - name: Clear Laravel Cache
-        run: php artisan optimize:clear
