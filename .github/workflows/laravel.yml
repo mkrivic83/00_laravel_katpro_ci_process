@@ -44,5 +44,9 @@ jobs:
         run: php artisan --version
 
     #CISCENJE LARAVEL CACHE-A
-      - name: Clear Laravel Cache
-        run: php artisan optimize:clear
+      # - name: Clear Laravel Cache
+      #   run: php artisan optimize:clear
+
+    #POPIS RUTA
+      - name: Popis ruta
+        run: php artisan route:list
