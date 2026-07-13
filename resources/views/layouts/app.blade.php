@@ -36,26 +36,26 @@
         <footer class="mt-5 py-4 border-t bg-gray-100 dark:bg-gray-900">
             <div class="text-center text-sm text-gray-600 dark:text-gray-300">
                 <strong>ENVIRONMENT</strong>
-                <span class="font-mono">{{ app()->environment() }}</span>
+                <span class="font-mono footercustom">{{ app()->environment() }}</span>
                 &nbsp;|&nbsp;
 
                 <strong>Laravel:</strong>
-                <span class="font-mono">{{ app()->version() }}</span>
+                <span class="font-mono footercustom">{{ app()->version() }}</span>
                 &nbsp;|&nbsp;
 
                 <strong>PHP:</strong>
-                <span class="font-mono">{{ PHP_VERSION }}</span>
+                <span class="font-mono footercustom">{{ PHP_VERSION }}</span>
                 &nbsp;|&nbsp;
 
                 <strong>Korisnik:</strong>
-                <span class="font-mono">{{ config('app.korisnik') }}</span>
+                <span class="font-mono footerred">{{ config('app.korisnik') }}</span>
                 &nbsp;|&nbsp;
 
                 @php
                     $projectName = basename(base_path());
                 @endphp
                 <strong>Projekt:</strong>
-                <span class="font-mono">{{ $projectName }}</span>
+                <span class="font-mono footerred">{{ $projectName }}</span>
                 &nbsp;|&nbsp;
             </div>
         </footer>
