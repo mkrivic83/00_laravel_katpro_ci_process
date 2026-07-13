@@ -55,7 +55,7 @@ class ProfileTest extends TestCase
                 'name' => 'Test User',
                 'email' => $user->email,
                 'datum_rod'=>'1990-10-20',
-                'placa'=>1750,
+                'placa'=>"1750",
             ]);
 
         $response

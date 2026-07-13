@@ -50,6 +50,13 @@
                 <strong>Korisnik:</strong>
                 <span class="font-mono">{{ config('app.korisnik') }}</span>
                 &nbsp;|&nbsp;
+
+                @php
+                    $projectName = basename(base_path());
+                @endphp
+                <strong>Projekt:</strong>
+                <span class="font-mono">{{ $projectName }}</span>
+                &nbsp;|&nbsp;
             </div>
         </footer>
     </body>
