@@ -25,7 +25,7 @@ class RegistrationTest extends TestCase
             'password_confirmation' => 'password',
             'isAdmin' => false,
             'datum_rod' => '1990-01-01',
-            'placa'=>1500
+            'placa'=>1700
         ]);
 
         $this->assertAuthenticated();
