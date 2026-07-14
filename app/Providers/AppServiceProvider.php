@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if(app()->environment('dev') || app()->environment('production')){
+        if(app()->environment('dev') || app()->environment('test') || app()->environment('production')){
             URL::forceScheme('https');
         }
         Gate::define('admin-access',function ($user){
