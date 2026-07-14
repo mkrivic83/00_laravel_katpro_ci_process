@@ -12,7 +12,8 @@ class Product extends Model
         'opis',
         'cijena',
         'kolicina',
-        'izvor'
+        'izvor',
+        'slika',
     ];
 
     protected function casts(): array

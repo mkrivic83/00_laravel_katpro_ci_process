@@ -112,12 +112,12 @@
                         style="display:none;"
                         >
                         <div class="py-1">
-                        <a href="{{ route('categories.index') }}"
+                        <a href="{{ route('products.index') }}"
                             class="block px-4 py-2 text-xs text-gray-700 hover:bg-gray-100"
                             >
                         Popis proizvoda
                         </a>
-                        <a href="{{ route('categories.db') }}"
+                        <a href="{{ route('products.db') }}"
                             class="block px-4 py-2 text-xs text-gray-700 hover:bg-gray-100"
                             >
                         Popis proizvoda db

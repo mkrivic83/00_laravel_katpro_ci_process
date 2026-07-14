@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 class ProductController extends Controller
 {
     /**
@@ -76,9 +77,19 @@ class ProductController extends Controller
                 'integer',
                 'min:0',
             ],
+            'slika'=>[
+                'nullable',
+                'image',
+                'mimes: jpg,jpeg,png,gif',
+                'max:2048',
+            ],
         ]);
 
         $validated['izvor']='custom';
+
+        if($request->hasFile('slika')){
+            $validated['slika']=$request->file('slika')->store('products','public');
+        }
 
         Product::create($validated);
 
@@ -136,9 +147,24 @@ class ProductController extends Controller
                 'integer',
                 'min:0',
             ],
+            'slika'=>[
+                'nullable',
+                'image',
+                'mimes: jpg,jpeg,png,gif',
+                'max:2048',
+            ],
         ]);
 
+        if($request->hasFile('slika')){
+            if($product->slika !== null && Storage::disk('public')->exists($product->slika)){
+                Storage::disk('public')->delete($product->slika);
+            }
+            $validated['slika']=$request->file('slika')->store('products','public');
+        }
+
         $product->update($validated);
+
+         
 
         return redirect()
             ->route('products.index')
@@ -151,6 +177,10 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         Gate::authorize('admin-access');
+
+        if($product->slika !== null && Storage::disk('public')->exists($product->slika)){
+                Storage::disk('public')->delete($product->slika);
+            }
         $product->delete();
 
         return redirect()

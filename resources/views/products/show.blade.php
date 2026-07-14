@@ -13,10 +13,11 @@
             <div class="bg-white shadow-sm sm:rounded-lg">
 
                 <div class="p-6">
+           
 
                     <table class="admin-table">
                         <tr>
-                            <td>ID</td>
+                        <td>ID</td>
                             <td>{{ $product->id }}</td>
                         </tr>
                         <tr>
@@ -42,11 +43,25 @@
                             <td>{{ $product->updated_at?->format('d.m.Y H:i:s')}}</td>
                         </tr>                                                                    
                     </table>
+                     @if($product->slika)
+                        <div class="mb-6">
+                            <h3 class="font-semibold text-lg mb-3">
+                                Slika proizvoda
+                            </h3>
+                            <img src="{{ asset('storage/'.$product->slika) }}"
+                            class="max-h-80 rounded-lg border border-gray-300 shadow">
+                        </div>
+                    @else
+                    <div class="mb-6">
+                            <h3 class="font-semibold text-lg mb-3">
+                                Nema slike za proizvod
+                            </h3>
+                        </div>
+                    @endif
                     <div class="mt-6 flex gap-4">
                         <a href="{{ route('products.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">
                             Povratak
                         </a>
-                        </form>
                     </div>
 
                 </div>
