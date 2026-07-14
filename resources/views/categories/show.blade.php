@@ -23,12 +23,19 @@
                         <td>Naziv</td>
                             <td>{{ $category->naziv }}</td>
                         </tr>
+                        <tr>
                         <td>Opis</td>
                             <td>{{ $category->opis }}</td>
                         </tr>
+                        <tr>
+                        <td>Aktivna</td>
+                            <td>{{ $category->active ? 'Da' : 'Ne' }}</td>
+                        </tr>                        
+                        <tr>
                         <td>Kreirana</td>
                             <td>{{ $category->created_at?->format('d.m.Y H:i:s')}}</td>
                         </tr>
+                        <tr>
                         <td>Ažurirana</td>
                             <td>{{ $category->updated_at?->format('d.m.Y H:i:s')}}</td>
                         </tr>                                                                    

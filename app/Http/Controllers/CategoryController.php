@@ -45,7 +45,12 @@ class CategoryController extends Controller
             'opis'=>[
                 'nullable','string'
             ],
+            'active'=>[
+                'nullable','boolean'
+            ],
         ]);
+
+        $validated['active']=$request->boolean('active');
 
         $category = Category::create($validated);
 
@@ -84,8 +89,12 @@ class CategoryController extends Controller
             'opis'=>[
                 'required','string'
             ],
+            'active'=>[
+                'nullable','boolean'
+            ],
         ]);
 
+        $validated['active']=$request->boolean('active');
         $category->update($validated);
         return redirect()
             ->route('categories.index')
