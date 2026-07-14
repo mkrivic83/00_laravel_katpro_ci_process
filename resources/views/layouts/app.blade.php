@@ -57,6 +57,10 @@
                 <strong>Projekt:</strong>
                 <span class="font-mono footerred">{{ $projectName }}</span>
                 &nbsp;|&nbsp;
+
+                <strong>Verzija aplikacije:</strong>
+                <span class="font-mono footercustom">{{ config('app.version') }}</span>
+                &nbsp;|&nbsp;
             </div>
         </footer>
     </body>
