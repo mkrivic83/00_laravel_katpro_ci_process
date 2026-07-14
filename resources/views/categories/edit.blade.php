@@ -40,6 +40,11 @@
 
                     </div>
 
+                    <div class="mb-4">
+                        <label class="font-semibold mb-1">Aktivna</label>
+                        <input type="checkbox" name="active" value="1" @checked(old('active',$category->active))>
+                    </div>
+
                     <button
                         type="submit"
                         class="bg-blue-600 text-white px-4 py-2 rounded"
