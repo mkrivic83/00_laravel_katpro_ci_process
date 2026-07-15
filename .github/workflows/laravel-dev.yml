@@ -85,7 +85,7 @@ jobs:
           
           # 1. Dohvati JSON ispis svih varijabli i filtriraj samo APP_VERSION pomoću jq
           APP_VERSION=$(railway variables \
-            --service "00_laravel_auth_webshop_ci1" \
+            --service "00_laravel_katpro_ci_process" \
             --environment "dev" \
             --json | jq -r '.APP_VERSION')
           
