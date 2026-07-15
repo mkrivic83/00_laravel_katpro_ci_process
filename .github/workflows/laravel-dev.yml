@@ -74,6 +74,32 @@ jobs:
         if: success()
         run: npm install -g @railway/cli
 
+
+    #ČITANJE RAILWAY VARIJABLI
+      - name: Railway Read APP_VERSION
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        run: |
+
+          echo "===== DOHVAĆANJE VARIJABLE ====="
+          
+          # 1. Dohvati JSON ispis svih varijabli i filtriraj samo APP_VERSION pomoću jq
+          APP_VERSION=$(railway variables \
+            --service "00_laravel_auth_webshop_ci1" \
+            --environment "educ" \
+            --json | jq -r '.APP_VERSION')
+          
+          # 2. Provjera je li vrijednost uspješno pročitana
+          if [ "$APP_VERSION" = "null" ] || [ -z "$APP_VERSION" ]; then
+            echo "Greška: Varijabla APP_VERSION nije pronađena na Railwayu!"
+            exit 1
+          fi
+
+          echo "Uspješno pročitana verzija: $APP_VERSION"
+          
+          # 3. Spremanje u GitHub Environment kako bi je mogao koristiti u idućim koracima (ako zatreba)
+          echo "APP_VERSION=$APP_VERSION" >> $GITHUB_ENV
+
     #AŽUIRANJE ENV VARIJABLI U RAILWAY DEV OKOLINI
       - name: Update Railway EDUC build number
         if: success()
