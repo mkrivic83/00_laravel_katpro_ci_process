@@ -66,7 +66,7 @@
                 <span class="font-mono footercustom">{{ config('app.build') }}</span>
                 &nbsp;|&nbsp;
 
-                 <strong>Commit:</strong>
+                 <strong>Commit i fix:</strong>
                 <span class="font-mono footercustom">{{ config('app.commit') }}</span>
                 &nbsp;|&nbsp;               
             </div>
