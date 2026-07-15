@@ -125,5 +125,7 @@ return [
 
     'korisnik' => env('APP_KORISNIK','Nepoznato'),
     'version' => env('APP_VERSION','1.0.0'),
+    'build' => env('APP_BUILD','local'),
+    'commit' => env('APP_COMMIT','local'),
 
 ];
